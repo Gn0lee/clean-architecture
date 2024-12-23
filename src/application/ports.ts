@@ -6,8 +6,8 @@ export interface NotificationService {
 }
 
 export interface BookService {
-  checkoutBooks: (userId: User, books: Book[]) => Promise<boolean>;
-  returnBooks: (userId: User, books: Book[]) => Promise<boolean>;
+  checkoutBook: (userId: User, book: Book) => Promise<boolean>;
+  returnBook: (userId: User, book: Book) => Promise<boolean>;
   searchBook: (query: string) => Promise<Book[]>;
 }
 

@@ -1,8 +1,8 @@
-import { Book } from "./Book";
+import { Book } from "./book";
 
 export interface User {
   name: string;
   id: UniqueId;
-  checkOutList: Book["id"][];
-  returnBackList: Book["id"][];
+  checkOutList: Book[];
+  returnBackList: Book[];
 }

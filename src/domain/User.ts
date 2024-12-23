@@ -2,7 +2,7 @@ import { Book } from "./Book";
 
 export interface User {
   name: string;
-  id: string;
-  checkOutList: Book[];
-  returnBackList: Book[];
+  id: UniqueId;
+  checkOutList: Book["id"][];
+  returnBackList: Book["id"][];
 }

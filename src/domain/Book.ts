@@ -1,6 +1,6 @@
 export interface Book {
-  id: string;
+  id: UniqueId;
   name: string;
   coverImageUrl: string;
-  author: string
+  author: string;
 }

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useAuth } from "../services/authAdaptor";
 import { useNavigate } from "react-router-dom";
+import { STORE_USER_KEY } from "../lib/key";
+import { useStore } from "../services/storeAdaptor";
 
 export default function Login() {
   const { login } = useAuth();
@@ -10,6 +12,8 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const { save } = useStore();
 
   const navigate = useNavigate();
 
@@ -26,8 +30,15 @@ export default function Login() {
 
     try {
       setIsLoading(true);
-      await login(id, password);
-      navigate("book/list");
+      const userKey = await login(id, password);
+
+      const isSaveSuccess = save(STORE_USER_KEY, userKey);
+
+      if (isSaveSuccess) {
+        navigate("book/list");
+      } else {
+        throw Error("store error");
+      }
     } catch (error) {
       console.error(error);
     } finally {
@@ -52,11 +63,11 @@ export default function Login() {
         >
           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
             <label htmlFor="id">아이디</label>
-            <input type="text" id="id" onChange={handleChangeId} />
+            <input type="text" id="id" onChange={handleChangeId} value={id}/>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-            <label htmlFor="pwd">아이디</label>
-            <input type="password" id="pwd" onChange={handleChangePassword} />
+            <label htmlFor="pwd">비밀번호</label>
+            <input type="password" id="pwd" onChange={handleChangePassword} value={password} />
           </div>
           <button disabled={isLoading}>로그인</button>
         </form>

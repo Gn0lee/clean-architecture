@@ -3,8 +3,8 @@ import { fakeApi } from "./api";
 
 export function useAuth(): AuthService {
   return {
-    login: (id) => {
-      return fakeApi({ id, checkOutList: [], name: "fake name" });
+    login: () => {
+      return fakeApi("fake id");
     },
     logout: () => {
       return fakeApi(true);

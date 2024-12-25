@@ -12,5 +12,8 @@ export function useBook(): BookService {
     searchBook: () => {
       return fakeApi([]);
     },
+    checkoutList: () => {
+      return fakeApi([]);
+    },
   };
 }

@@ -6,12 +6,13 @@ export interface NotificationService {
 }
 
 export interface BookService {
-  checkoutBook: (userId: User, book: Book) => Promise<boolean>;
-  returnBook: (userId: User, book: Book) => Promise<boolean>;
+  checkoutBook: (userId: User["id"], book: Book) => Promise<boolean>;
+  returnBook: (userId: User["id"], book: Book) => Promise<boolean>;
   searchBook: (query: string) => Promise<Book[]>;
+  checkoutList: (userId: User["id"]) => Promise<Book[]>;
 }
 
 export interface AuthService {
-  login: (id: string, password: string) => Promise<User>;
+  login: (id: string, password: string) => Promise<User["id"]>;
   logout: (id: string) => Promise<boolean>;
 }

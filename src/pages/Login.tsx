@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAuth } from "../../services/authAdaptor";
+import { useAuth } from "../services/authAdaptor";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {

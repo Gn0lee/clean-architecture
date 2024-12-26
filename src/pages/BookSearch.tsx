@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import { Book } from "../domain/book";
 import { STORE_USER_KEY } from "../lib/key";
 import { useStore } from "../services/storeAdaptor";
+import { useNotifier } from "../services/notificationAdaptor";
 
 export default function BookSearch() {
   const { searchBook, checkoutBook } = useBook();
+
+  const { notify } = useNotifier();
 
   const { load } = useStore();
 
@@ -58,7 +61,9 @@ export default function BookSearch() {
               const isSuccess = await checkoutBook(userKey, book);
 
               if (!isSuccess) {
-                alert("대여실패");
+                notify("이미 대출한 책입니다.");
+              } else {
+                notify("대출 성공");
               }
             };
 

@@ -36,7 +36,6 @@ export default function BookSearch() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "32px",
       }}
     >
       <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>

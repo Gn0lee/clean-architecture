@@ -10,7 +10,7 @@ export function useBook(): BookService {
   return {
     checkoutBook: (key, book) => {
       if (!fakeCheckoutObject[key]) {
-        fakeCheckoutObject[key] = [];
+        fakeCheckoutObject[key] = [book];
       } else {
         const existingBook = fakeCheckoutObject[key].find(
           (b) => b.id === book.id
@@ -46,8 +46,8 @@ export function useBook(): BookService {
 
       return fakeApi(fakeList);
     },
-    checkoutList: (key) => {
-      return fakeApi(fakeCheckoutObject[key] || []);
+    getCheckoutList: (key) => {
+      return fakeApi([...(fakeCheckoutObject[key] || [])]);
     },
   };
 }

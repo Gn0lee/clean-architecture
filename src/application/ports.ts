@@ -9,7 +9,7 @@ export interface BookService {
   checkoutBook: (userId: User["key"], book: Book) => Promise<boolean>;
   returnBook: (userId: User["key"], book: Book) => Promise<boolean>;
   searchBook: (query: string) => Promise<Book[]>;
-  checkoutList: (userId: User["key"]) => Promise<Book[]>;
+  getCheckoutList: (userId: User["key"]) => Promise<Book[]>;
 }
 
 export interface AuthService {

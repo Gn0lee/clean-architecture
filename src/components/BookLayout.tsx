@@ -9,6 +9,8 @@ export default function BookLayout() {
         alignItems: "center",
         gap: "16px",
         padding: "32px",
+        width: "100%",
+        height: "100%",
       }}
     >
       <h1>Book Store</h1>

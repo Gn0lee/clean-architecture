@@ -5,7 +5,7 @@ import { Book } from "../domain/book";
 import { STORE_USER_KEY } from "../lib/key";
 import { useStore } from "../services/storeAdaptor";
 
-export default function BookList() {
+export default function BookSearch() {
   const { searchBook, checkoutBook } = useBook();
 
   const { load } = useStore();

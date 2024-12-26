@@ -4,14 +4,14 @@ import "./index.css";
 
 import { BrowserRouter, Routes, Route } from "react-router";
 import Login from "./pages/Login.tsx";
-import BookList from "./pages/BookList.tsx";
+import BookSearch from "./pages/BookSearch.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/book/list" element={<BookList />} />
+        <Route path="/book/search" element={<BookSearch />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

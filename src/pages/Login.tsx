@@ -35,7 +35,7 @@ export default function Login() {
       const isSaveSuccess = save(STORE_USER_KEY, userKey);
 
       if (isSaveSuccess) {
-        navigate("book/list");
+        navigate("book/search");
       } else {
         throw Error("store error");
       }

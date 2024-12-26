@@ -4,7 +4,6 @@
 
 # 구성
 - React & Typescript
-- 네이버 도서 조회 API
 - vitest
 
 # 기능
